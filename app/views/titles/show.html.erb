@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @title.title %>
+</p>
+
+<p>
+  <strong>Year published:</strong>
+  <%= @title.year_published %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @title.category.try(:category_name) %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_title_path(@title) %> |
+<%= link_to 'Back', titles_path %>
