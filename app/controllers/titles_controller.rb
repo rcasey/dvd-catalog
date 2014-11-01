@@ -5,7 +5,11 @@ class TitlesController < ApplicationController
   # GET /titles
   # GET /titles.json
   def index
-    @titles = Title.all
+    # Sort by Category
+    @titles = Title.includes(:category).order("categories.category_name asc")
+    
+    # Sort by Title
+    #@titles = Title.order(:title)
   end
 
   # GET /titles/1
