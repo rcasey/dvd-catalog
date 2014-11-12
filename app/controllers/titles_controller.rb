@@ -20,8 +20,8 @@ class TitlesController < ApplicationController
   # GET /titles/1.json
   def show
     def show
-    @title = Title.find params[:id]
-  end
+      @title = Title.find params[:id]
+    end
   end
 
   # GET /titles/new
