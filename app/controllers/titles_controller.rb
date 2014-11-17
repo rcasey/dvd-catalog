@@ -11,7 +11,7 @@ class TitlesController < ApplicationController
     # Sort by Title
     #@titles = Title.order(:title)
 
-    # Sort by Category, Title
+    # Sort by Category, then Title
     @titles = Title.includes(:category).order("categories.category_name asc, title")
     
   end
