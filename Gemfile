@@ -41,3 +41,6 @@ gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# (rc, 12-dec-2014) Added pagination gem
+gem 'will_paginate', '~> 3.0.5'
+

@@ -12,7 +12,7 @@ class TitlesController < ApplicationController
     #@titles = Title.order(:title)
 
     # Sort by Category, then Title
-    @titles = Title.includes(:category).order("categories.category_name asc, title")
+    @titles = Title.includes(:category).order("categories.category_name asc, title").page(params[:page]).per_page(20)
     
   end
 
