@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Index#</th>
       <th>Cat#</th>
+      <th>Page#</th>
+      <th>Slot#</th>
       <th>Title</th>
       <th>Year published</th>
       <th>Category</th>
@@ -17,8 +18,9 @@
   <tbody>
     <% @titles.each_with_index do |title, index| %>
       <tr>
-        <td><%= index+1 %></td>
         <td><%= category_index(title)+1 %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
         <td><%= title.title %></td>
         <td><%= title.year_published %></td>
         <td><%= title.category.try(:category_name) %></td>

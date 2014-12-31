@@ -19,13 +19,15 @@ Development Log
     a page/slot index, abbreviated PSI, written as p/s.
     These indicate which page it located, and which slot on that
     page.
-    There are 4 slots per page (so s = [1...4])
+    There are 4 slots per page side, but the pages are two sided,
+    so s = [1...8])
         
     Definition of page/slot index, psi, where
     T = total discs, [t = 0,T]
     C = number of discs in category (restarts at 1 for each Category)
     P = page number
     cat = Category assigned to Title
+    SLOTS_PER_PAGE = 8
     
     To create the PSI:
     cur_c = ""
@@ -36,7 +38,7 @@ Development Log
         else            
             s = s + 1
             t = t + 1
-        if mod(t,4) = 0, then
+        if mod(t,SLOTS_PER_PAGE) = 0, then
             p = p + 1
             s = 1
         Assign p,s to Title
