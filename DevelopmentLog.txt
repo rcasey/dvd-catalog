@@ -1,0 +1,47 @@
+Development Log
+
+28-dec-2014 Added pagination gem; but this broke the global index, which
+    is necessary to compute the page & slot position.
+    
+    Note this requirement in a page/slot index number: a new category
+    
+    So the challenge now is to find out how to:
+    - perhaps compute a page/slot per dvd?
+    - failing the above, to preserve a global index?
+    
+29-dec-2014
+
+    Requirement: the beginning of every Category must begin
+    on a new page.
+    Requirement: Titles are sorted alphabetically within Category, and
+    Categories are sorted alphabetically.
+    Every Title will have these 2 attributes: page & slot, called
+    a page/slot index, abbreviated PSI, written as p/s.
+    These indicate which page it located, and which slot on that
+    page.
+    There are 4 slots per page side, but the pages are two sided,
+    so s = [1...8])
+        
+    Definition of page/slot index, psi, where
+    T = total discs, [t = 0,T]
+    C = number of discs in category (restarts at 1 for each Category)
+    P = page number
+    cat = Category assigned to Title
+    SLOTS_PER_PAGE = 8
+    
+    To create the PSI:
+    cur_c = ""
+    while (Titles)
+        if (cur_c <> Category)
+            s = 1
+            cur_c = Category
+        else            
+            s = s + 1
+            t = t + 1
+        if mod(t,SLOTS_PER_PAGE) = 0, then
+            p = p + 1
+            s = 1
+        Assign p,s to Title
+    end
+        
+    
